@@ -1,5 +1,7 @@
 // src/etc/CardInfo/index.jsx
 
+import { PawPrint } from 'lucide-react'; // ✅ Import ikon lucide-react
+
 const PetCard = ({ name, rarity, skill, evolution, type, effect }) => {
   // Tentukan warna berdasarkan rarity
   const getStyle = (rarity) => {
@@ -67,7 +69,7 @@ const PetCard = ({ name, rarity, skill, evolution, type, effect }) => {
         e.currentTarget.style.boxShadow = '0 4px 16px rgba(0, 0, 0, 0.08)';
       }}
     >
-      {/* Rarity Badge - Pojok Kiri Atas (MUNCUL DARI AWAL + STABIL) */}
+      {/* Rarity Badge - Pojok Kiri Atas */}
       <div
         style={{
           position: 'absolute',
@@ -84,6 +86,21 @@ const PetCard = ({ name, rarity, skill, evolution, type, effect }) => {
         }}
       >
         {rarity}
+      </div>
+
+      {/* Logo - Pojok Kanan Atas (HANYA IKON PAWPRINT) */}
+      <div
+        style={{
+          position: 'absolute',
+          top: '8px',
+          right: '8px',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          zIndex: 10,
+        }}
+      >
+        <PawPrint size={20} color="#333" /> {/* ✅ Hanya ikon, ukuran kecil */}
       </div>
 
       {/* Nama Pet - Di Atas Foto */}

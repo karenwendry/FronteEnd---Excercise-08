@@ -1,37 +1,24 @@
 // src/App.jsx
-import { AllPets } from './CardInfo/index.jsx';
+import React, { useState } from 'react';
+import Header from './header/pets/index.jsx'; // ✅ Import Header
+import { SearchBar } from './home/search.jsx'; // ✅ Import SearchBar dari home
+import { AllPets } from './CardInfo/index.jsx'; // ✅ Import CardInfo (bagianmu)
+import Footer from './Footer/index.jsx'; // ✅ Import Footer
 
 export default function App() {
+  // State untuk filter dan pencarian (jika nanti ditambahkan)
+  const [searchTerm, setSearchTerm] = useState('');
+  const [selectedGen, setSelectedGen] = useState('All');
+
   return (
-    <div style={{
-      padding: '20px',
-      backgroundColor: '#f5f9f7',
-      minHeight: '100vh',
-      fontFamily: 'Segoe UI, Tahoma, Geneva, Verdana, sans-serif',
-    }}>
+    <div style={{ padding: '20px', backgroundColor: '#f5f9f7', minHeight: '100vh' }}>
+      {/* Header */}
+      <Header selectedGen={selectedGen} onGenSelect={setSelectedGen} />
 
+      {/* Search Bar */}
+      <SearchBar searchTerm={searchTerm} onSearchChange={setSearchTerm} />
 
-      {/* Navbar / Dropdown Generasi (Contoh Code Base) */}
-      <div style={{
-        marginBottom: '20px',
-        position: 'relative',
-      }}>
-
-
-          <div style={{
-            padding: '6px 12px',
-            background: '#4caf50',
-            color: 'white',
-            borderRadius: '6px',
-            cursor: 'pointer',
-            fontSize: '14px',
-          }}>
-            All
-          </div>
-        </div>
-      
-
-      {/* Main Content - Tampilkan SEMUA PET */}
+      {/* Main Content - Semua Pet */}
       <div style={{
         display: 'flex',
         flexWrap: 'wrap',
@@ -43,16 +30,7 @@ export default function App() {
       </div>
 
       {/* Footer */}
-      <footer style={{
-        marginTop: '40px',
-        padding: '16px',
-        backgroundColor: '#2e7d32',
-        color: 'white',
-        textAlign: 'center',
-        fontSize: '12px',
-      }}>
-        
-      </footer>
+      <Footer />
     </div>
   );
 }
