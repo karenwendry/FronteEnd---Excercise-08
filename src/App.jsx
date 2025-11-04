@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import Header from "./header/pets";
 import { SearchBar, MainContent } from "./home/search";
+import Footer from "./Footer/index";
 
 const App = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedGen, setSelectedGen] = useState("All");
 
-  // import atau definisikan data pets-mu di sini
-  const petsData = []; // sementara kosong
+  const petsData = [];
 
   const filteredPets = petsData.filter((pet) => {
     const matchSearch =
@@ -22,9 +22,9 @@ const App = () => {
   });
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50">
+    <div className="min-h-screen bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50 flex flex-col">
       <Header selectedGen={selectedGen} onGenSelect={setSelectedGen} />
-      <div className="max-w-7xl mx-auto px-8 py-8">
+      <div className="flex-grow max-w-7xl mx-auto px-8 py-8">
         <SearchBar searchTerm={searchTerm} onSearchChange={setSearchTerm} />
         <MainContent
           pets={filteredPets}
@@ -32,6 +32,7 @@ const App = () => {
           selectedRarity={selectedGen}
         />
       </div>
+      <Footer />
     </div>
   );
 };
