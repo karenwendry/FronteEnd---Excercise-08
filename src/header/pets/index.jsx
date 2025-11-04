@@ -1,3 +1,4 @@
+// src/Header/Pet.jsx
 import React, { useState } from "react";
 import { PawPrint, Sprout } from "lucide-react";
 
@@ -18,13 +19,12 @@ const Header = ({ selectedGen, onGenSelect }) => {
 
   const handleSelectGen = (gen) => {
     onGenSelect(gen);
-    setDropdownOpen(false); // tutup dropdown setelah memilih
+    setDropdownOpen(false);
   };
 
   return (
     <header className="bg-gradient-to-r from-teal-600 via-emerald-500 to-green-600 text-white shadow-xl">
       <div className="max-w-7xl mx-auto px-8">
-        {/* Logo + Title */}
         <div className="flex items-center justify-between py-6">
           <div className="flex items-center gap-4">
             <div className="bg-white/20 p-3 rounded-xl backdrop-blur">
@@ -32,15 +32,12 @@ const Header = ({ selectedGen, onGenSelect }) => {
             </div>
             <div>
               <h1 className="text-3xl font-bold mb-1">Grow A Garden - Pet Database & Encyclopedia</h1>
-              <p className="text-green-100 text-sm">
-                🐾 Pet Collection
-              </p>
+              <p className="text-green-100 text-sm">🐾 Pet Collection</p>
             </div>
           </div>
           <Sprout className="w-12 h-12 opacity-50" />
         </div>
 
-        {/* Navbar */}
         <nav className="border-t border-white/20">
           <ul className="flex items-center gap-10 py-4 font-semibold text-lg">
             <li
@@ -50,7 +47,6 @@ const Header = ({ selectedGen, onGenSelect }) => {
               Home
             </li>
 
-            {/* Dropdown */}
             <li className="relative cursor-pointer select-none">
               <span
                 className="hover:text-green-100 flex items-center gap-1"

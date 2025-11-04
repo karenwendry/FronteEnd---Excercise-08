@@ -1,7 +1,9 @@
+// src/home/search.jsx
 import React from "react";
 import { Search, Sun, Droplets, Star } from "lucide-react";
 
-const SearchBar = ({ searchTerm, onSearchChange }) => (
+// --- Search Bar UI ---
+export const SearchBar = ({ searchTerm, onSearchChange }) => (
   <div className="mb-8">
     <div className="relative">
       <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
@@ -16,11 +18,10 @@ const SearchBar = ({ searchTerm, onSearchChange }) => (
   </div>
 );
 
-const Evolution = ({ stages }) => (
+// --- Evolution Path UI ---
+export const Evolution = ({ stages }) => (
   <div className="mt-4 pt-4 border-t border-gray-200">
-    <p className="text-xs font-bold text-gray-500 uppercase mb-2">
-      Evolution Path
-    </p>
+    <p className="text-xs font-bold text-gray-500 uppercase mb-2">Evolution Path</p>
     <div className="flex items-center justify-center gap-2 text-sm flex-wrap">
       {stages.map((stage, index) => (
         <React.Fragment key={index}>
@@ -36,7 +37,8 @@ const Evolution = ({ stages }) => (
   </div>
 );
 
-const TypeEffect = ({ type, effect }) => (
+// --- Type & Effect UI ---
+export const TypeEffect = ({ type, effect }) => (
   <div className="mt-4 space-y-2 bg-gray-50 p-3 rounded-lg">
     <div className="flex items-center gap-2">
       <Sun className="w-4 h-4 text-amber-500" />
@@ -53,27 +55,16 @@ const TypeEffect = ({ type, effect }) => (
   </div>
 );
 
-const CardInfo = ({ pet }) => {
+// --- Single Pet Card UI ---
+export const PetCard = ({ pet }) => {
   const rarityConfig = {
-    Common: {
-      bg: "bg-gray-50",
-      border: "border-gray-300",
-      badge: "bg-gray-500",
-    },
+    Common: { bg: "bg-gray-50", border: "border-gray-300", badge: "bg-gray-500" },
     Rare: { bg: "bg-blue-50", border: "border-blue-400", badge: "bg-blue-500" },
-    Epic: {
-      bg: "bg-purple-50",
-      border: "border-purple-400",
-      badge: "bg-purple-500",
-    },
-    Legendary: {
-      bg: "bg-yellow-50",
-      border: "border-yellow-400",
-      badge: "bg-yellow-500",
-    },
+    Mythic: { bg: "bg-purple-50", border: "border-purple-400", badge: "bg-purple-500" },
+    Transcendent: { bg: "bg-yellow-50", border: "border-yellow-400", badge: "bg-yellow-500" },
   };
 
-  const config = rarityConfig[pet.rarity];
+  const config = rarityConfig[pet.rarity] || rarityConfig.Common;
 
   return (
     <div
@@ -112,7 +103,8 @@ const CardInfo = ({ pet }) => {
   );
 };
 
-const MainContent = ({ pets, searchTerm, selectedRarity }) => (
+// --- Main Content Area UI ---
+export const MainContent = ({ pets, searchTerm, selectedRarity }) => (
   <div className="flex-1">
     <div className="mb-6">
       <h2 className="text-3xl font-bold text-gray-800 mb-2">
@@ -136,13 +128,11 @@ const MainContent = ({ pets, searchTerm, selectedRarity }) => (
         <p className="text-gray-500 mt-2">Try adjusting your search or filters</p>
       </div>
     ) : (
-      <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {pets.map((pet) => (
-          <CardInfo key={pet.id} pet={pet} />
+          <PetCard key={pet.id} pet={pet} />
         ))}
       </div>
     )}
   </div>
 );
-
-export { SearchBar, MainContent };
