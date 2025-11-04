@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // src/home/search.jsx
 import React from "react";
 import { Search, Sun, Droplets, Star } from "lucide-react";
@@ -65,44 +66,36 @@ export const PetCard = ({ pet }) => {
   };
 
   const config = rarityConfig[pet.rarity] || rarityConfig.Common;
+=======
+import React, { useState } from "react";
+import { Search as SearchIcon } from "lucide-react";
+
+const Search = () => {
+  const [query, setQuery] = useState("");
+>>>>>>> origin/Lio/home
 
   return (
-    <div
-      className={`${config.bg} border-2 ${config.border} rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2`}
-    >
+    <div className="w-full max-w-3xl mx-auto mt-10">
       <div className="relative">
-        <div className="text-7xl text-center mb-4">{pet.image}</div>
-        <div
-          className={`absolute top-0 right-0 ${config.badge} text-white text-xs px-3 py-1 rounded-full font-bold flex items-center gap-1`}
-        >
-          <Star className="w-3 h-3 fill-white" />
-          {pet.rarity}
-        </div>
+        <SearchIcon className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
+        <input
+          type="text"
+          placeholder="Search pets by name, type, or rarity..."
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          className="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-green-500 transition text-lg"
+        />
       </div>
-
-      <h3 className="text-2xl font-bold text-gray-800 text-center mb-2">
-        {pet.name}
-      </h3>
-      <p className="text-sm text-gray-600 text-center leading-relaxed mb-4">
-        {pet.description}
-      </p>
-
-      <div className="text-center mb-4">
-        <div className="inline-block bg-green-600 text-white px-6 py-2 rounded-full font-bold text-lg">
-          💰 {pet.price} coins
-        </div>
-      </div>
-
-      <div className="text-center text-xs text-gray-500 mb-3">
-        Generation {pet.generation}
-      </div>
-
-      <TypeEffect type={pet.type} effect={pet.effect} />
-      <Evolution stages={pet.evolutionStages} />
+      {query && (
+        <p className="text-gray-600 mt-4 text-center">
+          Showing results for: <span className="font-semibold">{query}</span>
+        </p>
+      )}
     </div>
   );
 };
 
+<<<<<<< HEAD
 // --- Main Content Area UI ---
 export const MainContent = ({ pets, searchTerm, selectedRarity }) => (
   <div className="flex-1">
@@ -136,3 +129,6 @@ export const MainContent = ({ pets, searchTerm, selectedRarity }) => (
     )}
   </div>
 );
+=======
+export default Search;
+>>>>>>> origin/Lio/home
