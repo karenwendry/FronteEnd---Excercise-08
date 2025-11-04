@@ -1,9 +1,11 @@
 import React from "react";
+import Header from "./header/header";
 import Home from "./home/Home";
 
 const App = () => {
   return (
     <div>
+      <Header />
       <Home />
     </div>
   );

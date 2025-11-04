@@ -5,7 +5,7 @@ const Search = () => {
   const [query, setQuery] = useState("");
 
   return (
-    <div className="w-full max-w-3xl mx-auto mt-10">
+    <div className="w-full max-w-3xl mx-auto">
       <div className="relative">
         <SearchIcon className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
         <input
