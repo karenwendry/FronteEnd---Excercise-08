@@ -1,5 +1,6 @@
+// src/App.jsx
 import React from "react";
-import Home from "./home/Home";
+import Home from "./home/home.jsx";
 import Header from "./header/header";
 import Footer from "./footer/footer";
 
