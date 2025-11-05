@@ -8,9 +8,7 @@ const Footer = () => (
           <p className="text-lg font-semibold mb-1">
             🌱 Grow A Garden Pet - Collection
           </p>
-          <p className="text-sm text-gray-400">
-            Roblox Fan Project - Educational Purpose
-          </p>
+          <p className="text-sm text-gray-400">Roblox Fan Project</p>
         </div>
         <div className="text-right">
           <p className="text-sm text-gray-400">Made with ❤️ using</p>
